@@ -1,6 +1,6 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
-import home from "../assets/home.png";
+import home from "../assets/background.png";
 export default function Home() {
   return (
     <div className="home">
@@ -32,7 +32,7 @@ export default function Home() {
         </div>
         <div className="image-container">
           <div className="image">
-            {/* <img src={home} alt="home image" /> */}
+            <img src={home} alt="home image" />
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>
