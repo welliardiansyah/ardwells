@@ -1,27 +1,34 @@
 import React from "react";
-import Card from "./Card";
 import icon from "../assets/icon.png";
-import super1 from "../assets/super1.png";
-import release2 from "../assets/release2.png";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+
+const helmetContext = {};
 
 export default function Free() {
   return (
-    <div className="free">
-      <div className="container">
-        <div className="background">
-          <div className="ellipse pink"></div>
-          <div className="ellipse green"></div>
-        </div>
-        <div className="content">
-          <div className="image">
-            <img src={icon} alt="icon" />
+    <HelmetProvider context={helmetContext}>
+      <Helmet>
+        <title>Ardwells | Website & Development System | jasa pembuatan website</title>
+        <meta name="description" content="jasa pembuatan website" />
+        <link rel="canonical" href="/" />
+      </Helmet>
+      <div className="free">
+        <div className="container">
+          <div className="background">
+            <div className="ellipse pink"></div>
+            <div className="ellipse green"></div>
           </div>
-          <h2 className="title">Free NFT for early birds</h2>
-          <p className="description">
-            Sign up today and you'll get a free NFT when we launch
-          </p>
+          <div className="content">
+            <div className="image">
+              <img src={icon} alt="icon" />
+            </div>
+            <h2 className="title">Free NFT for early birds</h2>
+            <p className="description">
+              Sign up today and you'll get a free NFT when we launch
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </HelmetProvider>
   );
 }

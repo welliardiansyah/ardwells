@@ -8,7 +8,9 @@ import ScrollToTop from "./components/ScrollToTop";
 import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
+import { HelmetProvider, Helmet } from "react-helmet-async";
 function App() {
+  const helmetContext = {};
   const [theme, setTheme] = useState("dark");
   const changeTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
@@ -47,15 +49,22 @@ function App() {
     nav[0].style.transform = "none";
   }, 1500);
   return (
-    <div data-theme={theme} className="app-container">
-      <ScrollToTop />
-      <Navbar changeTheme={changeTheme} currentTheme={theme} />
-      <Home />
-      <Clients />
-      <SuperRare />
-      <Release />
-      <Footer />
-    </div>
+    <HelmetProvider context={helmetContext}>
+      <Helmet>
+        <title>Ardwells | Website & Development System | jasa pembuatan website</title>
+        <meta name="description" content="jasa pembuatan website" />
+        <link rel="canonical" href="/" />
+      </Helmet>
+      <div data-theme={theme} className="app-container">
+        <ScrollToTop />
+        <Navbar changeTheme={changeTheme} currentTheme={theme} />
+        <Home />
+        <Clients />
+        <SuperRare />
+        <Release />
+        <Footer />
+      </div>
+    </HelmetProvider>
   );
 }
 

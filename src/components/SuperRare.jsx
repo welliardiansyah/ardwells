@@ -4,6 +4,9 @@ import super1 from "../assets/super1.png";
 import super2 from "../assets/super2.png";
 import super3 from "../assets/super3.png";
 import super4 from "../assets/super4.png";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+
+const helmetContext = {};
 
 export default function SuperRare() {
   const data = [
@@ -25,16 +28,24 @@ export default function SuperRare() {
     },
   ];
   return (
-    <div className="super-rare">
-      <div className="title-container">
-        <center>
-        <h2 className="title">Layanan Kami</h2>
-        <p className="description">
-        Kami bersemangat membangun solusi khusus yang selaras dengan kebutuhan bisnis Anda.
-        </p>
-        </center>
+    <HelmetProvider context={helmetContext}>
+      <Helmet>
+        <title>Ardwells | Website & Development System | jasa pembuatan website</title>
+        <meta name="description" content="jasa pembuatan website" />
+        <link rel="canonical" href="/" />
+      </Helmet>
+        
+      <div className="super-rare">
+        <div className="title-container">
+          <center>
+          <h2 className="title">Layanan Kami</h2>
+          <p className="description">
+          Kami bersemangat membangun solusi khusus yang selaras dengan kebutuhan bisnis Anda.
+          </p>
+          </center>
+        </div>
+        <Services />
       </div>
-      <Services />
-    </div>
+    </HelmetProvider>
   );
 }
